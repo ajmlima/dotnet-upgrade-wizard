@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Hosting;
 using WizardTool.App;
 using WizardTool.Commands;
-using WizardTool.Commands.Shift;
-using WizardTool.Commands.Shift.Service;
+using WizardTool.Commands.Upgrade;
+using WizardTool.Commands.Upgrade.Service;
 using WizardTool.ErrorHandlers;
 using WizardTool.Services;
 using WizardTool.Services.Interfaces;
@@ -15,8 +15,10 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddSingleton<IConsoleService, ConsoleService>();
         services.AddSingleton<IUpgradeWizardCommandBuilder, UpgradeWizardCommandBuilder>();
         
-        services.AddSingleton<IUpgradeWizardSubCommandBuilder, ShiftCommandBuilder>();
-        services.AddSingleton<IShiftService, ShiftService>();
+        services.AddSingleton<IUpgradeWizardSubCommandBuilder, UpgradeCommandBuilder>();
+        services.AddSingleton<IUpgradeCommandService, UpgradeCommandService>();
+        services.AddSingleton<ISolutionService, SolutionService>();
+        services.AddSingleton<IDotNetUpgradeService, DotNetUpgradeService>();
 
     })
     .Build();

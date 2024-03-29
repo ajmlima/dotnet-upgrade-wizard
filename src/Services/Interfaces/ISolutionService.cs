@@ -1,6 +1,8 @@
+using WizardTool.Services.Models;
+
 namespace WizardTool.Services.Interfaces;
 
 public interface ISolutionService
 {
-    string[] GetSolutionProjects(string solutionName);
+    DotnetSolution? GetSolution(string solutionName);
 }

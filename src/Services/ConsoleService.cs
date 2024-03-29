@@ -9,9 +9,16 @@ namespace WizardTool.Services
             Console.WriteLine();
         }
 
+        public void Write(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(value);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         public void WriteInfo(string value)
         {
-            WriteLine(value);
+            WriteLine("Info > " + value);
         }
 
         public void WriteInput(string value)
@@ -24,7 +31,7 @@ namespace WizardTool.Services
         public void WriteSuccess(string value)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            WriteLine(value);
+            WriteLine("Ok > " + value);
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -36,14 +43,14 @@ namespace WizardTool.Services
         public void WriteSample(string value)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            WriteLine(value);
+            WriteLine("Example > " + value);
             Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void WriteError(string value)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            WriteLine(value);
+            WriteLine("Error > " + value);
             Console.ForegroundColor = ConsoleColor.White;
         }
 

@@ -1,11 +1,12 @@
 using System.CommandLine;
 
-namespace WizardTool.Commands.Shift.Options
+namespace WizardTool.Commands.Upgrade.Options
 {    
-    internal static class ShiftOptionsBuilder
+    internal static class UpgradeOptionsBuilder
     {
         private static readonly string[] TargetFrameworkAliases = { "--targetFramework", "-t" };
         private static readonly string[] SolutionNameAliases = { "--solutionName", "-s" };
+        private static readonly string[] VerboseOutputAliases = { "--verboseOutput", "-vo" };
 
         public static Option<string> BuildTargetFrameworkOption()
         {
@@ -20,6 +21,14 @@ namespace WizardTool.Commands.Shift.Options
             {
                 IsRequired = false
             };
-        }                                       
+        }        
+        
+        public static Option<bool> BuildVerboseOutputOption()
+        {
+            return new Option<bool>(VerboseOutputAliases, getDefaultValue:() => false, "Prints the upgrade-assistant tool logs")
+            {
+                IsRequired = false
+            };
+        }  
     }
 }
