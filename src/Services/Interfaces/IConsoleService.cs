@@ -10,5 +10,6 @@ namespace WizardTool.Services.Interfaces
         void WriteSuccess(string value);
         void WriteInfo(string value);
         void WriteLine();
+        void Write(string value);
     }
 }
